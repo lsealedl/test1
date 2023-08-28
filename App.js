@@ -1,20 +1,43 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import{View,Text,StyleSheet, Button} from 'react-native'
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+import ListScreen from './src/screens/ListScreen';
+import HomeScreen from './src/screens/HomeScreen';
+
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator()
+
+const HomeStackScreen = () => {
+    return(
+        <Stack.Navigator
+            screenOptions={{
+                headerStyle: {
+                    backgroundColor:"#F3B562",
+                  },
+            }}
+        >
+            
+            <Stack.Screen name="Home" component={HomeScreen}/>
+            <Stack.Screen name="List" component={ListScreen}/> 
+        </Stack.Navigator>
+    )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const App=()=>{
+    return(
+        <NavigationContainer>
+            <Tab.Navigator>
+                <Tab.Screen  name=" " component={HomeStackScreen}
+                options={{
+                    headerShown: false}}
+                />
+            </Tab.Navigator>
+        </NavigationContainer>
+    );
+};
+
+const style = StyleSheet.create({});
+
+export default App;
