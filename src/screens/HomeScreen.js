@@ -4,14 +4,18 @@ const HomeScreen = ({navigation}) => {
     return (
         <View style={styles.container}>
             <ImageSet
-                imgSource={require("../img/Oranges.jpg")}
+                imgSource={require("../img/MyImage.jpg")}
                 main_title="Pongsakorn Netprachak"
                 sub_title="6421600166"
+                img_width={150}
+                img_height={150}
             />
             <ImageSet
                 imgSource={{uri:'https://img.freepik.com/premium-photo/ripe-juicy-orange-orange-slice-isolated-white-background_531456-766.jpg',}}
-                main_title="Pongsakorn Netprachak"
-                sub_title="6421600166"
+                main_title="Orange"
+                sub_title="Just normal orange"
+                img_width={150}
+                img_height={150}
             />
             <TouchableOpacity 
                 style={styles.btnView}

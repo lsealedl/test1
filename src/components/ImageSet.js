@@ -1,9 +1,9 @@
 import{Text, StyleSheet,Image,View} from "react-native"
 
-const ImageSet = ({imgSource, main_title, sub_title}) =>{
+const ImageSet = ({imgSource, main_title, sub_title ,img_width, img_height}) =>{
     return(
         <View style={styles.imageContainer}>
-            <Image style={styles.image}source={imgSource}/>
+            <Image style={[styles.image ,{width:img_width,height:img_height}]}source={imgSource}/>
             <Text style={styles.imgTitle}>{main_title}</Text>
             <Text style={styles.imgSubTitle}>{sub_title}</Text>
         </View>
@@ -16,8 +16,6 @@ const styles = StyleSheet.create({
         marginVertical: 10,
       },
       image: {
-        width: 150,
-        height: 150,
         borderRadius: 200,
         borderWidth: 3,
         borderColor: "#000",
